@@ -1,9 +1,11 @@
-import Contact from "../Contact/Contact";
-
-const ContactList = () => {
+const ContactList = ({ id, name, number, handleDelete }) => {
   return (
     <div>
-      <Contact />
+      <li>
+        <span>{name}</span>
+        <span>{number}</span>
+        <button onClick={() => handleDelete(id)}>Delete</button>
+      </li>
     </div>
   );
 };
