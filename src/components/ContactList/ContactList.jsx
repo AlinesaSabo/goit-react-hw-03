@@ -1,24 +1,15 @@
-import { FaUser } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
+import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 
-const ContactList = ({ id, name, number, handleDelete }) => {
+const ContactList = ({ data, handleDelete }) => {
   return (
-    <>
-      <li className={s.list}>
-        <div className={s.textContainer}>
-          <span>
-            <FaUser />
-            {name}
-          </span>
-          <span>
-            <FaPhoneAlt />
-            {number}
-          </span>
-        </div>
-        <button onClick={() => handleDelete(id)}>Delete</button>
-      </li>
-    </>
+    <div className={s.wrapper}>
+      <ul className={s.contact}>
+        {data.map((item) => (
+          <Contact key={item.id} {...item} handleDelete={handleDelete} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
